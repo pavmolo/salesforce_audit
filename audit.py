@@ -103,10 +103,10 @@ df = pd.DataFrame({
     'Роли': keys,
     'Значения': total_vector
 })
-
+st.divider()
 # Создание графика в Altair
 chart = alt.Chart(df).mark_bar().encode(
-    x=alt.X('Роли:N', axis=alt.Axis(title='Роли', labelFontSize=14, titleFontSize=18)),  # Увеличен размер шрифта для оси X
+    x=alt.X('Роли:N', axis=alt.Axis(title='Роли', labelFontSize=18, titleFontSize=18)),  # Увеличен размер шрифта для оси X
     y=alt.Y('Значения:Q', axis=alt.Axis(title='Значения', labelFontSize=14, titleFontSize=18)),  # Увеличен размер шрифта для оси Y
     color=alt.condition(
         alt.datum.Значения > 0,  # Условие для раскраски
