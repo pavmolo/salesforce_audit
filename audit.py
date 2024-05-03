@@ -4,8 +4,7 @@ import pandas as pd
 url_to_logo = "https://i.ibb.co/cFYfFHq/5-4x.png"
 
 # HTML для центрирования изображения логотипа
-st.markdown(f"<div style='text-align: center;'><img src='{url_to_logo}' style='height: 100px;'></div>", unsafe_allow_html=True)
-st.divider()
+
 # Ссылка на CSV экспорт таблицы
 #url = "https://docs.google.com/spreadsheets/d/17Fq2KaMbp_KiQ-RZcEHIMU9bjiFYYYF4jmvez4xnl48/export?format=csv"
 
@@ -63,6 +62,8 @@ data = pd.DataFrame(dat)
 total_vector = [0] * 5  # Предполагаем, что длина каждого option_vector равна 5
 
 with st.sidebar:
+    st.markdown(f"<div style='text-align: center;'><img src='{url_to_logo}' style='height: 100px;'></div>", unsafe_allow_html=True)
+    st.divider()
     for index, row in data.iterrows():
         with st.container():
             st.subheader(f'{row["Вопрос"]}:')
