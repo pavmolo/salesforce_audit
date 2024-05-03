@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import altair as alt
 
 url_to_logo = "https://i.ibb.co/cFYfFHq/5-4x.png"
 
@@ -97,7 +98,32 @@ descriptions = [
 st.header("Результаты тестирования")
 result_dict = dict(zip(keys, total_vector))
 description_dict = dict(zip(keys, descriptions))
-st.bar_chart(result_dict, height = 600)
+# Создание DataFrame для визуализации
+df = pd.DataFrame({
+    'Роли': keys,
+    'Значения': total_vector
+})
+
+# Создание графика в Altair
+chart = alt.Chart(df).mark_bar().encode(
+    x='Роли:N',  # N указывает, что данные номинативные
+    y='Значения:Q',  # Q указывает, что данные количественные
+    color=alt.condition(
+        alt.datum.Значения > 0,  # Условие для раскраски
+        alt.value('green'),  # Зеленый для положительных значений
+        alt.value('red')  # Красный для отрицательных значений
+    )
+).properties(
+    width=600,  # Ширина графика
+    height=300  # Высота графика
+)
+
+# Отображение графика в Streamlit
+st.altair_chart(chart, use_container_width=True)
+
+
+
+
 # Определение ключевых и слабых ролей
 sorted_roles = sorted(result_dict.items(), key=lambda x: x[1], reverse=True)
 top_roles = [role for role, value in sorted_roles if value > 0][:2]
