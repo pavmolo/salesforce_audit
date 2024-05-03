@@ -15,4 +15,4 @@ st.dataframe(data)
 for index, row in data.iterrows():
     with st.container(border=True):
         st.subheader(row['Вопрос'])
-        st.radio(f"{row['Вопрос']}:", options=[row['Левый'], "Затрудняюсь ответить", row['Правый']], index=1, label_visibility='hidden')
+        st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], "Затрудняюсь ответить", row['Правый']], index=1, label_visibility='hidden')
