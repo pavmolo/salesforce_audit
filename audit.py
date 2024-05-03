@@ -62,7 +62,7 @@ data = pd.DataFrame(dat)
 total_vector = [0] * 5  # Предполагаем, что длина каждого option_vector равна 5
 
 with st.sidebar:
-    st.markdown(f"<div style='text-align: center; height: 70%;'><img src='{url_to_logo}' style='height: 100%;'></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='text-align: center; width: 70%;'><img src='{url_to_logo}' style='width: 100%;'></div>", unsafe_allow_html=True)
     st.divider()
     for index, row in data.iterrows():
         with st.container():
