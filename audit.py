@@ -15,11 +15,15 @@ st.dataframe(data)
 for index, row in data.iterrows():
     with st.container(border=True):
         st.subheader(f'{row["Вопрос"]}:')
-        st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], "Затрудняюсь ответить", row['Правый']], index=1, label_visibility='hidden')
+        default = "Затрудняюсь ответить"
+        choise = st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], default, row['Правый']], index=1, label_visibility='hidden')
         numbers = [row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']]
         numbers = [2*x for x in numbers]
         inverted_numbers = [-x for x in numbers]
         transformed_numbers = [1 if x == 0 else -1 for x in numbers]
-        st.write(numbers)
-        st.write(inverted_numbers)
-        st.write(transformed_numbers)
+        if choise == row['Левый']:
+            st.write(numbers)
+        elif choise == row['Правый']:
+            st.write(inverted_numbers)
+        elif choise == default:
+            st.write(transformed_numbers)
