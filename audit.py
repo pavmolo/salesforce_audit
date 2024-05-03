@@ -13,3 +13,6 @@ data = load_data()
 # Отображаем данные в Streamlit
 st.title('Данные аудита продажников')
 st.dataframe(data)
+
+for i in data:
+    i
