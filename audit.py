@@ -15,5 +15,5 @@ st.title('Данные аудита продажников')
 st.dataframe(data)
 
 for index, row in data.iterrows():
-    
+    st.subheader(row['Вопрос'])
     st.select_slider(row['Вопрос'], options=[row['Левый'], "", "Затрудняюсь ответить", "", row['Правый']], value="Затрудняюсь ответить", label_visibility="hidden")
