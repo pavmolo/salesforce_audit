@@ -38,3 +38,18 @@ with st.sidebar:
 keys = ['Волк', 'Работяга', 'Строитель Отношений', 'Чемпион', 'Решатель Проблем']
 result_dict = dict(zip(keys, total_vector))
 st.bar_chart(result_dict, height = 600)
+# Определение ключевых и слабых ролей
+sorted_roles = sorted(result_dict.items(), key=lambda x: x[1], reverse=True)
+top_roles = [role for role, value in sorted_roles if value > 0][:2]
+weak_roles = [role for role, value in sorted_roles if value < 0][-2:]
+
+# Отображение результатов
+st.subheader('Ключевые роли продавца:')
+for role in top_roles:
+    st.write(role)
+
+st.subheader('Самые слабые роли:')
+for role in weak_roles:
+    st.write(role)
+
+st.bar_chart(result_dict, height=600)
