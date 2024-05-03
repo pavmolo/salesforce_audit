@@ -51,5 +51,3 @@ for role in top_roles:
 st.subheader('Самые слабые роли:')
 for role in weak_roles:
     st.write(role)
-
-st.bar_chart(result_dict, height=600)
