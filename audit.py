@@ -36,7 +36,15 @@ with st.sidebar:
 
 # Отображаем итоговый total_vector в Streamlit
 keys = ['Волк', 'Работяга', 'Строитель Отношений', 'Чемпион', 'Решатель Проблем']
+descriptions = [
+    "Челленджеры используют своё глубокое понимание бизнеса клиента, чтобы изменить их мышление.",
+    "Трудяги всегда готовы приложить дополнительные усилия, они первыми приходят на работу и последними уходят.",
+    "Строители отношений сосредоточены на создании и поддержании сильных связей.",
+    "Одинокие волки полагаются на свои инстинкты и часто игнорируют правила.",
+    "Реактивные решатели проблем фокусируются на обеспечении выполнения обещаний."
+]
 result_dict = dict(zip(keys, total_vector))
+description_dict = dict(zip(keys, descriptions))
 st.bar_chart(result_dict, height = 600)
 # Определение ключевых и слабых ролей
 sorted_roles = sorted(result_dict.items(), key=lambda x: x[1], reverse=True)
@@ -47,7 +55,11 @@ weak_roles = [role for role, value in sorted_roles if value < 0][-2:]
 st.subheader('Ключевые роли продавца:')
 for role in top_roles:
     st.write(role)
+    with st.expander(role):
+        st.write(description_dict[role])
 
 st.subheader('Самые слабые роли:')
 for role in weak_roles:
     st.write(role)
+    with st.expander(role):
+        st.write(description_dict[role])
