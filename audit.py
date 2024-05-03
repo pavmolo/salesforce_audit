@@ -37,4 +37,4 @@ with st.sidebar:
 # Отображаем итоговый total_vector в Streamlit
 keys = ['Волк', 'Работяга', 'Строитель Отношений', 'Чемпион', 'Решатель Проблем']
 result_dict = dict(zip(keys, total_vector))
-st.bar_chart(result_dict)
+st.bar_chart(result_dict, height (800))
