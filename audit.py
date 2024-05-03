@@ -53,7 +53,7 @@ top_roles = [role for role, value in sorted_roles if value > 0][:2]
 weak_roles = [role for role, value in sorted_roles if value < 0][-2:]
 
 # Отображение результатов
-st.subheader('Ключевые роли продавца:')
+st.subheader('Самые сильные роли:')
 for role in top_roles:
     with st.expander(role):
         st.write(description_dict[role])
