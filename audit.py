@@ -8,11 +8,6 @@ url = "https://docs.google.com/spreadsheets/d/17Fq2KaMbp_KiQ-RZcEHIMU9bjiFYYYF4j
 # Загрузка данных из Google Таблиц в DataFrame
 data = pd.read_csv(url)
 
-
-
-# Загружаем данные
-data = load_data()
-
 # Отображаем данные в Streamlit
 st.title('Данные аудита продажников')
 st.dataframe(data)
