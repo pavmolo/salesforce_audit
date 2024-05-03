@@ -17,6 +17,7 @@ for index, row in data.iterrows():
         st.subheader(f'{row["Вопрос"]}:')
         st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], "Затрудняюсь ответить", row['Правый']], index=1, label_visibility='hidden')
         numbers = [row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']]
+        numbers = [2*x for x in numbers]
         inverted_numbers = [-x for x in numbers]
         st.write(numbers)
         st.write(inverted_numbers)
