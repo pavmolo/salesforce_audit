@@ -14,5 +14,5 @@ data = load_data()
 st.title('Данные аудита продажников')
 st.dataframe(data)
 
-for i in data['Вопрос']:
-    st.header(i)
+for index, row in data.iterrows():
+    row
