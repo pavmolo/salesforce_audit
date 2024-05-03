@@ -14,5 +14,5 @@ data = load_data()
 st.title('Данные аудита продажников')
 st.dataframe(data)
 
-number = st.slider("Выберите количество строк для отображения", 1, len(data))
-st.write(data.head(number))
+for i in data['Вопрос']:
+    i
