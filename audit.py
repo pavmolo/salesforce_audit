@@ -32,6 +32,8 @@ with st.sidebar:
             
             # Суммирование option_vector с total_vector поэлементно
             total_vector = [sum(x) for x in zip(total_vector, option_vector)]
+            st.divider()
+            st.divider()
 
 # Отображаем итоговый total_vector в Streamlit
 keys = ['Волк', 'Работяга', 'Строитель Отношений', 'Чемпион', 'Решатель Проблем']
