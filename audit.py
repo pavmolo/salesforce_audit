@@ -15,4 +15,4 @@ st.title('Данные аудита продажников')
 st.dataframe(data)
 
 for i in data['Вопрос']:
-    i
+    st.header(i)
