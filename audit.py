@@ -55,10 +55,10 @@ weak_roles = [role for role, value in sorted_roles if value < 0][-2:]
 # Отображение результатов с цветными заголовками
 st.markdown("<h2 style='color: green;'>Самые сильные роли:</h2>", unsafe_allow_html=True)
 for role in top_roles:
-    with st.expander(role):
+    with st.expander(f":green[`{role}`]", expanded=False):
         st.write(description_dict[role])
 
 st.markdown("<h2 style='color: red;'>Самые слабые роли:</h2>", unsafe_allow_html=True)
 for role in weak_roles:
-    with st.expander(role):
+    with st.expander(f":red[`{role}`]", expanded=False):
         st.write(description_dict[role])
