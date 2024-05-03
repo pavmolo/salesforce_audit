@@ -15,4 +15,4 @@ st.title('Данные аудита продажников')
 st.dataframe(data)
 
 for index, row in data.iterrows():
-    row
+    row['Вопрос']
