@@ -106,8 +106,8 @@ df = pd.DataFrame({
 
 # Создание графика в Altair
 chart = alt.Chart(df).mark_bar().encode(
-    x='Роли:N',  # N указывает, что данные номинативные
-    y='Значения:Q',  # Q указывает, что данные количественные
+    x=alt.X('Роли:N', axis=alt.Axis(title='Роли', labelFontSize=14, titleFontSize=18)),  # Увеличен размер шрифта для оси X
+    y=alt.Y('Значения:Q', axis=alt.Axis(title='Значения', labelFontSize=14, titleFontSize=18)),  # Увеличен размер шрифта для оси Y
     color=alt.condition(
         alt.datum.Значения > 0,  # Условие для раскраски
         alt.value('green'),  # Зеленый для положительных значений
@@ -115,7 +115,7 @@ chart = alt.Chart(df).mark_bar().encode(
     )
 ).properties(
     width=600,  # Ширина графика
-    height=300  # Высота графика
+    height=600  # Высота графика
 )
 
 # Отображение графика в Streamlit
