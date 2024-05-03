@@ -19,5 +19,7 @@ for index, row in data.iterrows():
         numbers = [row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']]
         numbers = [2*x for x in numbers]
         inverted_numbers = [-x for x in numbers]
+        transformed_numbers = [1 if x == 0 else -1 for x in numbers]
         st.write(numbers)
         st.write(inverted_numbers)
+        st.write(transformed_numbers)
