@@ -17,3 +17,4 @@ for index, row in data.iterrows():
         st.subheader(f'{row["Вопрос"]}:')
         st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], "Затрудняюсь ответить", row['Правый']], index=1, label_visibility='hidden')
         st.write([row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']])
+        st.write([row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']] * -1)
