@@ -22,8 +22,9 @@ for index, row in data.iterrows():
         inverted_numbers = [-x for x in numbers]
         transformed_numbers = [1 if x == 0 else -1 for x in numbers]
         if choise == row['Левый']:
-            st.write(numbers)
+            option_vector = numbers
         elif choise == row['Правый']:
-            st.write(inverted_numbers)
+            option_vector = inverted_numbers
         elif choise == default:
-            st.write(transformed_numbers)
+            option_vector = transformed_numbers
+        st.write(option_vector)
