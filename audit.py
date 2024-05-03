@@ -1,11 +1,14 @@
 import streamlit as st
 import pandas as pd
 
-# Функция для загрузки данных из Excel
-def load_data():
-    url = "https://github.com/pavmolo/salesforce_audit/blob/main/autit_table.xlsx?raw=true"
-    df = pd.read_excel(url, sheet_name='Лист1')
-    return df
+
+# Ссылка на CSV экспорт таблицы
+url = "https://docs.google.com/spreadsheets/d/17Fq2KaMbp_KiQ-RZcEHIMU9bjiFYYYF4jmvez4xnl48/export?format=csv"
+
+# Загрузка данных из Google Таблиц в DataFrame
+data = pd.read_csv(url)
+
+
 
 # Загружаем данные
 data = load_data()
