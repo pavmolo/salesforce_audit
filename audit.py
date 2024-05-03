@@ -33,9 +33,8 @@ for index, row in data.iterrows():
         
         # Суммирование option_vector с total_vector поэлементно
         total_vector = [sum(x) for x in zip(total_vector, option_vector)]
-        
-        # Отображаем option_vector в Streamlit
-        st.write(option_vector)
 
 # Отображаем итоговый total_vector в Streamlit
-st.write("Итоговый total_vector:", total_vector)
+keys = ['Волк', 'Работяга', 'Строитель Отношений', 'Чемпион', 'Решатель Проблем']
+result_dict = dict(zip(keys, total_vector))
+st.bar_chart(result_dict)
