@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-
 # Ссылка на CSV экспорт таблицы
 url = "https://docs.google.com/spreadsheets/d/17Fq2KaMbp_KiQ-RZcEHIMU9bjiFYYYF4jmvez4xnl48/export?format=csv"
 
@@ -12,19 +11,31 @@ data = pd.read_csv(url)
 st.title('Данные аудита продажников')
 st.dataframe(data)
 
+# Инициализация total_vector с нулями
+total_vector = [0] * 5  # Предполагаем, что длина каждого option_vector равна 5
+
 for index, row in data.iterrows():
-    with st.container(border=True):
+    with st.container():
         st.subheader(f'{row["Вопрос"]}:')
         default = "Затрудняюсь ответить"
-        choise = st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], default, row['Правый']], index=1, label_visibility='hidden')
+        choice = st.radio(f'{row["Вопрос"]}:', options=[row['Левый'], default, row['Правый']], index=1, label_visibility='hidden')
         numbers = [row['Волк'], row['Работяга'], row['Строитель Отношений'], row['Чемпион'], row['Решатель Проблем']]
         numbers = [2*x for x in numbers]
         inverted_numbers = [-x for x in numbers]
         transformed_numbers = [1 if x == 0 else -1 for x in numbers]
-        if choise == row['Левый']:
+        
+        if choice == row['Левый']:
             option_vector = numbers
-        elif choise == row['Правый']:
+        elif choice == row['Правый']:
             option_vector = inverted_numbers
-        elif choise == default:
+        elif choice == default:
             option_vector = transformed_numbers
+        
+        # Суммирование option_vector с total_vector поэлементно
+        total_vector = [sum(x) for x in zip(total_vector, option_vector)]
+        
+        # Отображаем option_vector в Streamlit
         st.write(option_vector)
+
+# Отображаем итоговый total_vector в Streamlit
+st.write("Итоговый total_vector:", total_vector)
